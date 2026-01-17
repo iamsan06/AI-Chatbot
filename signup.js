@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://ai-chatbot-production-604d.up.railway.app";
 
 // Initialize Vanta background
 VANTA.NET({
