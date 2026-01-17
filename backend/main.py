@@ -18,7 +18,9 @@ app = FastAPI()
 # -------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # OK for now (GitHub Pages + Railway)
+    allow_origins=[
+        "https://iamsan06.github.io"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
