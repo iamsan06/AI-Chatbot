@@ -1,4 +1,4 @@
-const API_URL = "https://ai-chatbot-production-604d.up.railway.app/";
+const API_URL = "https://ai-chatbot-production-604d.up.railway.app";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Check if user is logged in
