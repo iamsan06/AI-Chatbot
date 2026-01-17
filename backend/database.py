@@ -1,12 +1,17 @@
-from dotenv import load_dotenv
-load_dotenv()
-
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-import os
 
+# Get DATABASE_URL from environment (Railway sets this automatically)
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Railway PostgreSQL URLs start with postgres://, but SQLAlchemy needs postgresql://
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+# Fallback to localhost for local development
+if not DATABASE_URL:
+    DATABASE_URL = "postgresql://postgres:password@localhost:5432/ai_chat"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
