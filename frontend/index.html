@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ask Anything</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-menu" id="topMenu">
+  <span id="menuBtn">☰</span>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h2>History</h2>
+    <button class="new-chat-btn" id="newChatBtn">+ New Chat</button>
+  </div>
+  <div class="history" id="historyList">
+    <!-- History items will be loaded here -->
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div id="app">
+
+  <div id="landing">
+    <div id="vanta-bg"></div>
+
+    <div class="center-box">
+      <h1>Ask Anything</h1>
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Type your question..." />
+        <button id="searchBtn">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="chat-page">
+    <div class="chat-header">
+      <span class="menu-btn-chat" id="menuBtnChat">☰</span>
+      <h2> AI Chatbot</h2>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div class="chat-input">
+      <input id="chat-input" type="text" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

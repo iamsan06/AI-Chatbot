@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#vanta-bg {
+  width: 100%;
+  height: 100vh;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 360px;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.card h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #00ffff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00cccc;
+}
+
+button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.message {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  min-height: 20px;
+}
+
+.message.error {
+  color: #ff6b6b;
+}
+
+.message.success {
+  color: #00ffff;
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.auth-toggle a {
+  color: #00ffff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-toggle a:hover {
+  color: #00cccc;
+}

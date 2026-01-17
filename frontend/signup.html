@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Ask Anything</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div id="vanta-bg"></div>
+
+<div class="content">
+  <div class="card">
+    <h1>Registration</h1>
+
+    <form id="signupForm">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+
+      <button type="submit" id="signupBtn">Register</button>
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <div class="auth-toggle">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+<script src="signup.js"></script>
+
+</body>
+</html>
