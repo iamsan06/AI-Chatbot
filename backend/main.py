@@ -22,8 +22,8 @@ app.add_middleware(
         "https://iamsan06.github.io"
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type"],
 )
 
 # -------------------------
