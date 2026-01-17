@@ -13,21 +13,31 @@ from ai_client import ask_openrouter
 
 app = FastAPI()
 
-# CORS
+# -------------------------
+# CORS CONFIG (IMPORTANT)
+# -------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # OK for now (GitHub Pages + Railway)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# -------------------------
+# ROUTERS
+# -------------------------
 app.include_router(auth_router)
 
+# -------------------------
+# SCHEMAS
+# -------------------------
 class ChatRequest(BaseModel):
     message: str
 
-
+# -------------------------
+# CHAT ENDPOINT
+# -------------------------
 @app.post("/chat")
 def chat(
     req: ChatRequest,
@@ -35,71 +45,64 @@ def chat(
     db: Session = Depends(get_db)
 ):
     user = db.query(User).filter(User.email == user_email).first()
-
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
     # Save user message
-    db.add(Message(
-        user_id=user.id,
-        role="user",
-        content=req.message
-    ))
+    db.add(
+        Message(
+            user_id=user.id,
+            role="user",
+            content=req.message
+        )
+    )
     db.commit()
 
     ai_messages = [
         {"role": "system", "content": "You are a helpful AI assistant."},
-        {"role": "user", "content": req.message}
+        {"role": "user", "content": req.message},
     ]
 
     try:
         ai_reply = ask_openrouter(ai_messages)
 
         # Save assistant reply
-        db.add(Message(
-            user_id=user.id,
-            role="assistant",
-            content=ai_reply
-        ))
+        db.add(
+            Message(
+                user_id=user.id,
+                role="assistant",
+                content=ai_reply
+            )
+        )
         db.commit()
 
         return {"reply": ai_reply}
 
-    except ValueError as e:
-        error_message = str(e)
-        print(f"AI API Error: {error_message}")
-        
-        error_reply = f"Sorry, I encountered an error: {error_message}"
-        db.add(Message(
-            user_id=user.id,
-            role="assistant",
-            content=error_reply
-        ))
-        db.commit()
-        
-        return {"reply": error_reply}
-        
     except Exception as e:
-        print(f"Unexpected error: {str(e)}")
+        print("AI error:", str(e))
+
         error_reply = "Sorry, something went wrong. Please try again."
-        
-        db.add(Message(
-            user_id=user.id,
-            role="assistant",
-            content=error_reply
-        ))
+
+        db.add(
+            Message(
+                user_id=user.id,
+                role="assistant",
+                content=error_reply
+            )
+        )
         db.commit()
-        
+
         return {"reply": error_reply}
 
-
+# -------------------------
+# CHAT HISTORY
+# -------------------------
 @app.get("/history")
 def get_history(
     user_email: str = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     user = db.query(User).filter(User.email == user_email).first()
-
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
@@ -116,3 +119,10 @@ def get_history(
             for m in chat_history
         ]
     }
+
+# -------------------------
+# HEALTH CHECK (OPTIONAL BUT RECOMMENDED)
+# -------------------------
+@app.get("/")
+def root():
+    return {"status": "ok"}
