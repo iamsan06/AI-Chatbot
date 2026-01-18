@@ -7,11 +7,10 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from auth import router as auth_router, get_current_user
-from database import get_db, Base, engine
+from database import get_db
 from models import User, Message
 from ai_client import ask_openrouter
 
-Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # CORS - THIS IS CRITICAL
