@@ -11,6 +11,7 @@ from database import get_db
 from models import User, Message
 from ai_client import ask_openrouter
 
+Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # CORS - THIS IS CRITICAL
