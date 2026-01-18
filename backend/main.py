@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from auth import router as auth_router, get_current_user
-from database import get_db
+from database import get_db, Base, engine
 from models import User, Message
 from ai_client import ask_openrouter
 
