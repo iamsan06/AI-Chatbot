@@ -1,20 +1,20 @@
-# 🤖 AI Chatbot Application
+#  AI Chatbot Application
 
 An AI-powered chatbot web application built using **FastAPI** and **Groq LLM**, featuring secure authentication, chat history, and an interactive frontend with a live animated wallpaper.
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 💬 AI-powered chatbot using Groq LLM for real-time responses  
-- 🔐 JWT-based authentication for secure user sessions  
-- 🕒 Chat history support to maintain conversation context  
-- 🌌 Interactive UI with **Vanta.js** live animated background  
-- 🌐 Fully deployed backend on cloud (Render)
+-  AI-powered chatbot using Groq LLM for real-time responses  
+-  JWT-based authentication for secure user sessions  
+-  Chat history support to maintain conversation context  
+-  Interactive UI with **Vanta.js** live animated background  
+-  Fully deployed backend on cloud (Render)
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - HTML  
@@ -32,7 +32,7 @@ An AI-powered chatbot web application built using **FastAPI** and **Groq LLM**, 
 
 ---
 
-## ⚙️ Application Flow
+##  Application Flow
 
 1. User authenticates using JWT-based login  
 2. Frontend sends user prompts to FastAPI backend  
@@ -42,29 +42,29 @@ An AI-powered chatbot web application built using **FastAPI** and **Groq LLM**, 
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 - Implemented **JWT (JSON Web Tokens)** for secure authentication  
 - Tokens are generated on login and verified on protected routes  
 - Ensures only authenticated users can access chat functionality  
 
 ---
-## 🌍 Deployment
+##  Deployment
 - Backend deployed on Render  
 - Environment variables configured securely on the cloud platform  
 
-## 📚 Learnings & Takeaways
+##  Learnings & Takeaways
 - Hands-on experience integrating LLM APIs into backend services  
 - Understanding of JWT-based authentication workflows  
 - Building RESTful APIs with FastAPI  
 - Managing environment variables and cloud deployment  
 - Connecting frontend and backend in a full-stack AI application  
 
-## 🔗 Links
+##  Links
 - Live Demo: https://iamsan06.github.io/AI-Chatbot/
 - GitHub Repository: https://github.com/iamsan06/AI-Chatbot
 
-## 📌 Future Improvements
+##  Future Improvements
 - Add database support for persistent chat history  
 - Improve UI/UX and mobile responsiveness  
 - Add user profile management  
